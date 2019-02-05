@@ -27,7 +27,7 @@ class WeatherGUI(tk.Frame):
     def get_weather(self):
         connection = httplib.HTTPConnection("api.openweathermap.org")
         #TODO: read in the api key
-        #api_key = 
+        api_key = open("apikey.txt", "r").read()
         url = "/data/2.5/weather?q={0}&APPID={1}&units=metric".format(self.city.get(), api_key)
         connection.request("GET", url)
         response = connection.getresponse()
